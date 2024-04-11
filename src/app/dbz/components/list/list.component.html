@@ -1,0 +1,23 @@
+<h4>Listado</h4>
+    <ul class="list-group">
+      @for (item of characterList; track item; let isFirst = $first, isLast = $last, isEven =$even, isOdd = $odd) {
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+      [ngClass]="{
+        'list-group-item-dark':isLast,
+        'list-group-item-primary':isEven,
+        }">
+        <div>
+          <span>{{ $index + 1}} - </span>
+          <span>{{item.name}} -</span>
+          <strong>Power: </strong>
+          <span>{{item.power}}</span>
+          <span> Es par:  {{isEven}} </span>
+          <span> Es impar:  {{isOdd}} </span>
+
+        </div>
+
+
+      <button class="btn btn-danger" (click)="onDeleteCharacter(item.Id)">X</button>
+      </li>
+    }
+</ul>
